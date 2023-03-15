@@ -1,0 +1,65 @@
+1.简单随机抽样srs
+
+srs.mean=function(N, mysample, alpha)-----------------------------------------------------------------均值估计
+srs.total=function(N, mysample, alpha)------------------------------------------------------------------总量估计
+srs.prop=function(N=NULL, n, event.num, alpha)--------------------------------------------------------总体比例估计
+srs.num=function(N=NULL, n, event.num, alpha)--------------------------------------------------------总体特征指标数估计
+srs.mean.size=function(N=NULL, Mean.his=NULL, Var.his, method, bound, alpha)-------------------------估计总体均值时样本量的确定
+srs.prop.size=function(N=NULL, Prop.his, method, bound, alpha)------------------------------------------估计总体比例时样本量的确定
+
+2.分层抽样ss
+
+ss.mean1=function(Nh, nh, yh, s2h, alpha)----------------------------------------------------------------均值估计1
+ss.mean2=function(Nh, mysample, stra.index, alpha)-----------------------------------------------------均值估计2
+ss.prop1=function(Nh, nh, ah, alpha)---------------------------------------------------------------------总体比例估计1
+ss.prop2=function(Nh, nh, ah, alpha)---------------------------------------------------------------------总体比例估计2
+ss.weight=function(Wh, S2h, Ch=NULL, allocation)-------------------------------------------------------各层样本量分配，分配后的比例
+ss.size=function(n, Wh, S2h, Ch=NULL, allocation)--------------------------------------------------------各层样本量分配，分配后的样本量
+VCdr=function(method, bound, Ybar=NULL, alpha=NULL)------------------------------------------------精度要求转换为方差V
+ss.mean.size=function(Nh, S2h, Ch=NULL, allocation, method, bound, Ybar=NULL, alpha=NULL)--------估计总体均值时样本量的确定
+ss.prop.size=function(Nh, Ph, Ch=NULL, allocation, method, bound, Ybar=NULL, alpha=NULL)----------估计总体比例时样本量的确定
+fenpei=function(wh,nh,n)-----------------------------------------------------------------------------------样本量分配的细节问题
+
+3.比估计与回归估计ratio and reg
+
+ratio=function(y.sample, x.sample, N=NULL, auxiliary=FALSE, Xbar=NULL, alpha)---------------------比估计(R的估计)
+ratio.mean=function(y.sample, x.sample, N=NULL, Xbar, alpha)----------------------------------------均值比估计
+ratio.total=function(y.sample, x.sample, N, Xbar, alpha)------------------------------------------------总量比估计
+reg.mean=function(y.sample, x.sample, N=NULL, Xbar, alpha, method="Min", beta0=NULL)---------均值回归估计
+reg.total=function(y.sample, x.sample, N=NULL, Xbar, alpha, method="Min", beta0=NULL)----------总量回归估计
+s.ratio.mean=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha)---------------------------------均值分别比估计
+s.ratio.total=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha)----------------------------------总量分别比估计
+c.ratio.mean=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha)---------------------------------均值联合比估计
+c.ratio.total=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha)----------------------------------总量联合比估计
+s.reg.mean=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha)----------------------------------均值分别回归估计
+s.reg.total=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha)-----------------------------------总量分别回归估计
+c.reg.mean=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha,method="Min", beta0=NULL)------均值联合回归估计
+c.reg.total=function(Nh, y.sample, x.sample, stra.index, Xbar, alpha,method="Min", beta0=NULL)--------总量联合回归估计
+
+4.二重抽样ds
+
+stD.mean=function(N=NULL, nh.1st, nh.2nd, ybarh, s2h, alpha)----------------------------------------------分层的均值简单估计
+stD.total=function(N=NULL, nh.1st, nh.2nd, ybarh, s2h, alpha)-----------------------------------------------分层的总量简单估计
+RD.mean=function(N=NULL, n.1st, xbar.1st, y.sample, x.sample, alpha)--------------------------------------均值比估计
+RD.total=function(N=NULL, n.1st, xbar.1st, y.sample, x.sample, alpha)---------------------------------------总量比估计
+lrD.mean=function(N=NULL, n.1st, xbar.1st, y.sample, x.sample, alpha, method="Min", beta0=NULL)------均值回归估计
+lrD.total=function(N=NULL, n.1st, xbar.1st, y.sample, x.sample, alpha, method="Min", beta0=NULL)-------总量回归估计
+
+5.整群抽样cs
+
+cs.mean1=function(N=NULL,n,M,y.sample,cluster,alpha)---------------------------------------------------均值估计1
+cs.mean2=function(N=NULL,n,M,yi.bar,sw,alpha)-----------------------------------------------------------均值估计2
+cs.total1=function(N,n,M,y.sample,cluster,alpha)------------------------------------------------------------总量估计1
+cs.total2=function(N=NULL,n,M,yi.bar,sw,alpha)------------------------------------------------------------总量估计2
+cs.deff1=function(N=NULL,n,M,y.sample,cluster,alpha)-----------------------------------------------------设计效应估计1
+cs.deff2=function(N=NULL,n,M,yi.bar,sw,alpha)-------------------------------------------------------------设计效应估计2
+cs.prop=function(N=NULL,n,M=NULL,m.sample=NULL,a.sample,p.sample=NULL,alpha)------------------总体比例估计
+
+另：
+deff
+deff=function(var.result)------------------------------------------------------------设计效应
+deff.size=function(deff.result, size1)------------------------------------------------设计效应所需的样本量
+
+ci
+ci=function(para.hat, SD.hat, alpha)-------------------------------------------------置信区间（para.hat为估计量）
+
